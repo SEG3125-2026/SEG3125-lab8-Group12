@@ -1,20 +1,5 @@
-import { House, Info, Library, Plus } from 'lucide-react'
+import { BookOpenText, House, Info, Library, Plus } from 'lucide-react'
 import { NavLink } from 'react-router-dom'
-
-function BrandMark() {
-  return (
-    <svg className="brand-mark" viewBox="0 0 64 64" role="presentation" aria-hidden="true">
-      <path
-        d="M10 12h18c6 0 10 3 12 6 2-3 6-6 12-6h2v34h-2c-6 0-10 2-12 5-2-3-6-5-12-5H10V12Z"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="4"
-        strokeLinejoin="round"
-      />
-      <path d="M32 18v28" fill="none" stroke="currentColor" strokeWidth="4" strokeLinecap="round" />
-    </svg>
-  )
-}
 
 const navigationLinks = [
   { to: '/', label: 'Home', icon: House },
@@ -27,7 +12,7 @@ function TopNav() {
   return (
     <header className="top-nav">
       <NavLink to="/" className="brand" aria-label="uoDecks home">
-        <BrandMark />
+        <BookOpenText className="brand-mark" size={44} strokeWidth={2.1} aria-hidden="true" />
         <span className="brand-wordmark">
           uo<span>Decks</span>
         </span>
