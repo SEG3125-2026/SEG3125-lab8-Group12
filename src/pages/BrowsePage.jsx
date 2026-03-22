@@ -102,6 +102,35 @@ function BrowsePage() {
         </div>
       </section>
 
+      <section className="surface-panel">
+        <div className="section-heading">
+          <div>
+            <p className="section-tag">Deck Library</p>
+            <h2>Decks</h2>
+          </div>
+          <span className="badge">{filteredDecks.length} shown</span>
+        </div>
+
+        {filteredDecks.length > 0 ? (
+          <div className="card-grid card-grid--browse">
+            {filteredDecks.map((deck) => (
+              <DeckCard
+                key={deck.id}
+                deck={deck}
+                onStudy={() => handleStudy(deck.id)}
+                onEdit={() => handleEdit(deck.id)}
+                onDelete={() => setDeckToDelete(deck)}
+              />
+            ))}
+          </div>
+        ) : (
+          <div className="empty-state">
+            <h3>No decks match that search</h3>
+            <p>Clear the current filters or create a new deck to keep building your study library.</p>
+          </div>
+        )}
+      </section>
+
       <section className="split-section">
         <article className="surface-panel">
           <div className="section-heading">
@@ -147,35 +176,6 @@ function BrowsePage() {
             </div>
           </div>
         </article>
-      </section>
-
-      <section className="surface-panel">
-        <div className="section-heading">
-          <div>
-            <p className="section-tag">Deck Library</p>
-            <h2>All decks</h2>
-          </div>
-          <span className="badge">{filteredDecks.length} shown</span>
-        </div>
-
-        {filteredDecks.length > 0 ? (
-          <div className="card-grid card-grid--browse">
-            {filteredDecks.map((deck) => (
-              <DeckCard
-                key={deck.id}
-                deck={deck}
-                onStudy={() => handleStudy(deck.id)}
-                onEdit={() => handleEdit(deck.id)}
-                onDelete={() => setDeckToDelete(deck)}
-              />
-            ))}
-          </div>
-        ) : (
-          <div className="empty-state">
-            <h3>No decks match that search</h3>
-            <p>Clear the current filters or create a new deck to keep building your study library.</p>
-          </div>
-        )}
       </section>
 
       <ConfirmDialog
