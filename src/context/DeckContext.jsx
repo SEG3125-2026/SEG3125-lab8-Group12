@@ -25,12 +25,12 @@ function sortDecks(decks) {
 }
 
 export function DeckProvider({ children }) {
-  const [decks, setDecks] = useLocalStorage('uodecks-library-v1', sampleDecks)
-  const [recentDeckIds, setRecentDeckIds] = useLocalStorage('uodecks-recents-v1', [
-    'deck-seg3125',
-    'deck-csi3140',
+  const [decks, setDecks] = useLocalStorage('uodecks-library-v2', sampleDecks)
+  const [recentDeckIds, setRecentDeckIds] = useLocalStorage('uodecks-recents-v2', [
+    'deck-csi2101',
+    'deck-csi2110',
   ])
-  const [studySessions, setStudySessions] = useLocalStorage('uodecks-study-sessions-v1', [])
+  const [studySessions, setStudySessions] = useLocalStorage('uodecks-study-sessions-v2', [])
 
   function getDeckById(deckId) {
     return decks.find((deck) => deck.id === deckId)
